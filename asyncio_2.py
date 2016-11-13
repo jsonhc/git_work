@@ -7,7 +7,7 @@ def compute(x,y):
   return x + y
 
 def print_sum(x,y):
-  return = yield from compute(x,y)
+  result = yield from compute(x,y)
   print('%s + %s = %s' % (x,y,result))
   
 
