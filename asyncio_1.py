@@ -1,11 +1,11 @@
 import asyncio
-asyncio def compute(x,y):
+async def compute(x,y):
   print('Compute %s + %s ...' % (x,y))
   await asyncio.sleep(1)
   return x + y
 
 
-asyncio def print_sum(x,y):
+async def print_sum(x,y):
   result = await compute(x,y)
   print('%s + %s = %s' % (x,y,result))
 
