@@ -3,4 +3,3 @@ world
 hello world
 master
 add dev
-with --no-ff
