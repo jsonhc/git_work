@@ -1,0 +1,4 @@
+iphone   5800
+bike   1000
+coffee   33
+book   100
