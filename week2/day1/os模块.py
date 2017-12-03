@@ -4,7 +4,7 @@
 import os
 
 print(os.getcwd())  # 打印当前路径，类似于linux下面的pwd
-os.chdir(r"D:\study\new_test\study_for_python")   # 改变到指定目录，类似cd
+os.chdir(r"D:\study\new_test\study_for_python")  # 改变到指定目录，类似cd
 # print(os.getcwd())
 #
 # print(os.curdir)   # 返回.,代表当前路径
@@ -16,14 +16,15 @@ os.chdir(r"D:\study\new_test\study_for_python")   # 改变到指定目录，类�
 # os.remove("test.py")      # 删除文件，不能删除文件夹
 
 
-L = os.listdir(r"D:\study\new_test\study_for_python")      # 列出指定目录下面的所有文件和目录，以列表格式输出，类似于ls -l
+L = os.listdir(r"D:\study\new_test\study_for_python")  # 列出指定目录下面的所有文件和目录，以列表格式输出，类似于ls -l
 print(L)
 
-# os.rename("README.md", "README.MD")         # 重命名文件或者目录，前者为源文件名，后者为命名后的文件名
-# print(os.stat("homework"))      # 获取文件或者目录的信息：os.stat_result(st_mode=16895, st_ino=1970324836985797, st_dev=2225790372, st_nlink=1, st_uid=0, st_gid=0, st_size=4096, st_atime=1512231761, st_mtime=1512231761, st_ctime=1512231761)
-print(os.sep)     # 输出操作系统路径的分隔符
+# os.rename("README.md", "README.MD")         # 重命名文件或者目录，前者为源文件名，后者为命名后的文件名 print(os.stat("homework"))      #
+# 获取文件或者目录的信息：os.stat_result(st_mode=16895, st_ino=1970324836985797, st_dev=2225790372, st_nlink=1, st_uid=0,
+# st_gid=0, st_size=4096, st_atime=1512231761, st_mtime=1512231761, st_ctime=1512231761)
+print(os.sep)  # 输出操作系统路径的分隔符
 print(os.pathsep)
-print(os.name)    #
+print(os.name)  #
 # os.system("dir")   # 运行终端命令，win的cmd命令行串口，linux下面的终端命令行
 '''
 >>> os.system("ls -l")
@@ -42,7 +43,42 @@ Swap:         13349          35       13313
 
 
 
-print(os.path.isfile("test.py"))        # 判断文件是否存在，返回True或者False
-print(os.path.abspath("week2"))         # 打印当前
+print(os.path.isfile("test.py"))      # 判断文件是否存在，返回True或者False
+print(os.path.abspath("week2"))  # 打印当前文件或目录的绝对路径
 print(os.path.abspath("README.MD"))
+
+s = os.path.split(r"D:\study\new_test\study_for_python\README.MD")      # 将文件路径进行切割，返回一个元祖
+print(s)
+
+print(os.path.dirname(r"D:\study\new_test\study_for_python\README.MD"))         # 类似于shell下面的dirname命令
+
+print(os.path.basename(r"D:\study\new_test\study_for_python\README.MD"))        # 类似于shell下面的basename命令
+
+# print(os.path.exists(r"D:\study\new_test\study_for_python"))           # 判断文件或目录是否存在，返回True或者False
+#
+# print(os.path.isabs("README.MD"))         # 判断给定的文件或目录是否是绝对路径，返回True或者False
+
+print(os.path.isfile("README.MD"))          # 判断是否是一个文件，返回True或者False
+
+print(os.path.isdir("README.MD"))          # 判断是否是一个目录，返回True或者False
+
+abc_path = os.path.join(r"D:\study\new_test\study_for_python", "README.MD")        # 将给定的多个目录进行拼接在一起
+print(abc_path)
+
+print(os.path.getatime(r"D:\study\new_test\study_for_python"))                # 返回文件或者目录的属性信息atime
+
+print(os.path.getmtime(r"README.MD"))                     # 返回文件或者目录的属性信息mtime
+
+
+
+
+
+
+
+
+
+
+
+
+
 
