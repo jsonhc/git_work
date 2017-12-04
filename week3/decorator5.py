@@ -8,8 +8,12 @@ def auth(auth_type):
     return outer
 
 
-@auth("file")
+@auth("file")     # auth("file")(langding)()或者auth("file")(langding)(*args, **kwargs)
 def langing():
     print("welcome to land")
 
 langing()
+'''
+auth_type is file
+welcome to land
+'''
