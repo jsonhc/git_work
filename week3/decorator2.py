@@ -9,8 +9,8 @@ def extend_hello(func):
     return dec
 
 
-@extend_hello
+@extend_hello     # 为函数hello进行装饰，也就是将函数名hello将参数传入到extend_hello中
 def hello():
     print("hello")
 
-hello()
+hello()   # 执行该行代码的步骤：1、extend_hello(hello)()    2、return dec------>dec()  3、print("decorate for hello")    hello()
