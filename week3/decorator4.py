@@ -20,4 +20,5 @@ def auth(func):
 def langing():
     print("welcome to land")
 
-langing()
+langing()  # 将langing作为参数传入到auth中，auth(langing)()  ---->return intrapper，然后执行intrapper函数，由于该函数可以传入任意参数，这里没有
+# 参数所以继续执行，函数intrapper函数中执行的func函数，实际执行的就是langing函数
