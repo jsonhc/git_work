@@ -19,9 +19,17 @@ os.chdir(r"D:\study\new_test\study_for_python")  # 改变到指定目录，类�
 L = os.listdir(r"D:\study\new_test\study_for_python")  # 列出指定目录下面的所有文件和目录，以列表格式输出，类似于ls -l
 print(L)
 
-# os.rename("README.md", "README.MD")         # 重命名文件或者目录，前者为源文件名，后者为命名后的文件名 print(os.stat("homework"))      #
-# 获取文件或者目录的信息：os.stat_result(st_mode=16895, st_ino=1970324836985797, st_dev=2225790372, st_nlink=1, st_uid=0,
+# os.rename("README.md", "README.MD")         # 重命名文件或者目录，前者为源文件名，后者为命名后的文件名 
+
+print(os.stat("homework"))      # 获取文件或者目录的信息：os.stat_result(st_mode=16895, st_ino=1970324836985797, st_dev=2225790372, st_nlink=1, st_uid=0,
 # st_gid=0, st_size=4096, st_atime=1512231761, st_mtime=1512231761, st_ctime=1512231761)
+>>> os.stat(r'/root/script/thread/thread5.py')
+os.stat_result(st_mode=33188, st_ino=1689900, st_dev=64769, st_nlink=1, st_uid=0, st_gid=0, st_size=723, st_atime=1520134415, st_mtime=1520134412, st_ctime=1520134412)
+>>> os.stat(r'/root/script/thread/thread5.py').st_ctime
+1520134412.8703709
+>>> os.stat(r'/root/script/thread/thread5.py').st_atime
+1520134415.5494676
+
 print(os.sep)  # 输出操作系统路径的分隔符
 print(os.pathsep)
 print(os.name)  #
