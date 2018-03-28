@@ -69,9 +69,39 @@ print(os.path.getatime(r"D:\study\new_test\study_for_python"))                # 
 
 print(os.path.getmtime(r"README.MD"))                     # 返回文件或者目录的属性信息mtime
 
+print(os.path.getsize(r'/root/script/thread/thread_condition.py'))   # 获取指定文件额大小
 
+os.walk: os.walk(top, topdown=True, onerror=None, followlinks=False)
+  top是要遍历的目录。
+  topdown是代表要从上而下遍历还是从下往上遍历。
+  onerror可以用来设置当便利出现错误的处理函数(该函数接受一个OSError的实例作为参数)，设置为空则不作处理。
+  followlinks表示是否要跟随目录下的链接去继续遍历，要注意的是，os.walk不会记录已经遍历的目录，所以跟随链接遍历的话有可能一直循环调用下去。
+  os.walk返回的是一个3个元素的元组 (root, dirs, files) ，分别表示遍历的路径名，该路径下的目录列表和该路径下文件列表。注意目录列表和文件列表不是具体路径，需要具体路径(从root开始的路径)的话可以用 os.path.join(root,dir) 和 os.path.join(root,dir)
 
+#!/usr/bin/python
 
+import os
+
+for dirpath, dirnames, filenames in os.walk(r'/root/script',True):
+    print(dirpath)
+    for dir in dirnames:
+        print(dir)
+    for f in filenames:
+        f_path=os.path.join(dirpath,f)
+        f_size=os.path.getsize(f_path)
+        print(f,f_size)
+
+执行结果：
+/root/script
+/root/script/mysql
+mysql_connect4.py 322
+mysql_connect_thread.py 854
+mysql_connect.py 329
+mysql_connect3.py 322
+mysql_connect_thread1.py 666
+mysql_connect2.py 314
+mysql_connect1.py 568
+business.sql 942
 
 
 
