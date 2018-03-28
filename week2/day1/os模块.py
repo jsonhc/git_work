@@ -69,7 +69,7 @@ print(os.path.getatime(r"D:\study\new_test\study_for_python"))                # 
 
 print(os.path.getmtime(r"README.MD"))                     # 返回文件或者目录的属性信息mtime
 
-print(os.path.getsize(r'/root/script/thread/thread_condition.py'))   # 获取指定文件额大小
+print(os.path.getsize(r'/root/script/thread/thread_condition.py'))   # 获取指定文件的大小
 
 os.walk: os.walk(top, topdown=True, onerror=None, followlinks=False)
   top是要遍历的目录。
