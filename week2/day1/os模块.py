@@ -105,7 +105,24 @@ business.sql 942
 
 
 
+#!/usr/bin/python
 
+import os
+file_path=[]
+
+for dirpath, dirnames, filenames in os.walk(r'/root/script/thread',True):
+    print(dirpath)   # 获取指定目录的路径
+    for dir in dirnames:
+        print(dir)   # 递归获取指定目录下的所有目录
+    for f in filenames:   # 遍历获取指定目录下的所有文件(递归获取)
+        f_path=os.path.join(dirpath,f)   # 获取文件的绝对路径
+        f_size=os.path.getsize(f_path)   # 获取文件的文件大小
+        print(f,f_size)
+    for f in filenames:
+        file_path.append(os.path.join(dirpath,f)) # 将带有绝对路径的文件加入列表中
+
+for f in file_path:
+    print(f)
 
 
 
