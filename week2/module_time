@@ -42,3 +42,40 @@ datetime.datetime(2018, 3, 28, 11, 3, 52, 192147)
 # 获取指定时间的字符串时间:     datetime.datetime()
 >>> print(datetime.datetime(2018,3,28,11,4))
 2018-03-28 11:04:00
+
+--------------------------------------------------------------
+#!/usr/bin/python
+
+import datetime, time, os
+
+# 获取指定文件的ctime时间戳
+file_st_ctime=os.stat(r'/root/script/thread/thread_semaphore.py').st_ctime
+
+# 获取文件的ctime时间的结构化时间
+file_struct_ctime=time.localtime(file_st_ctime)
+
+# 获取文件的ctime时间的字符串格式时间
+# file_string_ctime=time.strftime("%Y-%m-%d %H:%M:%S",file_struct_ctime)
+y=time.strftime("%Y",file_struct_ctime)
+m=time.strftime("%m",file_struct_ctime)
+d=time.strftime("%d",file_struct_ctime)
+H=time.strftime("%H",file_struct_ctime)
+M=time.strftime("%M",file_struct_ctime)
+S=time.strftime("%S",file_struct_ctime)
+file_string_ctime=datetime.datetime(int(y),int(m),int(d),int(H),int(M),int(S))
+print(file_string_ctime)
+
+# 获取当前时间nowtime
+nowtime=datetime.datetime.now()
+print(nowtime)
+
+# 获取文件到当前时间的时间差
+timedelt=nowtime-file_string_ctime
+print(timedelt)
+
+执行结果：
+[root@aliyun os]# python time_of_file.py 
+2018-03-20 21:08:13
+2018-03-28 15:42:48.666388
+7 days, 18:34:35.666388
+---------------------------------------------------------------------
