@@ -1,0 +1,44 @@
+# 获取当前的时间戳时间
+>>> import time
+>>> time.time()
+1522205314.0794811
+
+# 将时间戳时间转化为结构化时间元祖：  time.localtime()---->struct_time
+>>> time.localtime()     # 默认是当前的时间戳
+time.struct_time(tm_year=2018, tm_mon=3, tm_mday=28, tm_hour=10, tm_min=40, tm_sec=17, tm_wday=2, tm_yday=87, tm_isdst=0)
+
+>>> time.localtime(1520134415.5494676)
+time.struct_time(tm_year=2018, tm_mon=3, tm_mday=4, tm_hour=11, tm_min=33, tm_sec=35, tm_wday=6, tm_yday=63, tm_isdst=0)
+
+# 获取结构化时间元祖中的元素：
+>>> time.localtime(1520134415.5494676).tm_mon    # 获取月份
+3
+
+# 获取文件修改的时间戳：   os.stat()
+>>> os.stat(r'/root/script/thread/thread5.py')
+os.stat_result(st_mode=33188, st_ino=1689900, st_dev=64769, st_nlink=1, st_uid=0, st_gid=0, st_size=723, st_atime=1520134415, st_mtime=1520134412, st_ctime=1520134412)
+>>> os.stat(r'/root/script/thread/thread5.py').st_ctime
+1520134412.8703709
+
+
+# 将结构化元祖时间元祖转化为格式化字符串时间：   time.strftime()
+>>> time.strftime("%Y-%m-%d %H:%M:%S",time.localtime())
+'2018-03-28 10:55:22'
+
+>>> time.strftime("%Y",time.localtime(os.stat(r'/root/script/thread/thread5.py').st_ctime))  # 先获取文件的时间戳时间，再得到结构化时间元祖，然后转化为字符串时间
+'2018'
+
+>>> time.strftime("%Y-%m-%d %H:%M:%S",time.localtime(os.stat(r'/root/script/thread/thread5.py').st_ctime))
+'2018-03-04 11:33:32'
+
+
+# 获取当前时间:   datetime.datetime.now()
+>>> import datetime
+>>> datetime.datetime.now()
+datetime.datetime(2018, 3, 28, 11, 3, 52, 192147)
+>>> print(datetime.datetime.now())
+2018-03-28 11:04:03.538115
+
+# 获取指定时间的字符串时间:     datetime.datetime()
+>>> print(datetime.datetime(2018,3,28,11,4))
+2018-03-28 11:04:00
