@@ -134,6 +134,19 @@ for f in file_path:
 
 
 
+split()、os.path.split()、os.path.splitext()的区别：
+>>> s='hello python<[www.python.com]>hello python'
+>>> s.split('[')[1].split(']')[0]
+'www.python.com'
 
+语法：os.path.split('PATH')    PATH指一个文件的全路径作为参数；如果给出的是一个目录和文件名，则输出路径和文件名；如果给出的是一个目录名，则输出路径和为空文件名
+>>> os.path.split(r'/root/script/thread/thread5.py')
+('/root/script/thread', 'thread5.py')
+>>> os.path.split(r'/root/script/thread/')
+('/root/script/thread', '')
+
+语法：os.path.splitext(path)  #分割路径，返回路径名和文件扩展名的元组
+>>> os.path.splitext(r'/root/script/thread/thread5.py')
+('/root/script/thread/thread5', '.py')
 
 
