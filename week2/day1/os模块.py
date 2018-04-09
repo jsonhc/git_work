@@ -30,6 +30,11 @@ os.stat_result(st_mode=33188, st_ino=1689900, st_dev=64769, st_nlink=1, st_uid=0
 >>> os.stat(r'/root/script/thread/thread5.py').st_atime
 1520134415.5494676
 
+# 获取文件大小
+file_size = os.stat(filename).st_size
+f_size = os.path.getsize(filename)
+
+
 print(os.sep)  # 输出操作系统路径的分隔符
 print(os.pathsep)
 print(os.name)  #
