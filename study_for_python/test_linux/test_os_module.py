@@ -42,19 +42,52 @@ import os
 #     print(i)
 
 
-# import time
+import time
 # print(time.time())    # 得到从1970到现在的秒数  seconds
-# print(time.localtime())
-# print(time.localtime(time.time()))
+# print(time.localtime())    # struct_time共九个元素，结构化时间元祖
+# print(time.localtime(time.time()))   # 与上面一样
 # time_list = time.localtime()
 # print(type(time_list))    # <type 'time.struct_time'>
 # print(time_list.tm_year)   # 得到年份2018
 # print(time.strftime("%Y-%m-%d %H:%M:%S", time_list))     # 将结构化元祖时间转化为格式化字符串时间   2018-11-21 16:46:46
 # print(time.strptime("2018-11-21 16:43:26", "%Y-%m-%d %H:%M:%S"))     # 将格式化字符串时间转化为结构化元祖时间
+print(time.mktime(time.strptime("2018-11-21 16:43:26", "%Y-%m-%d %H:%M:%S")))    # 1542789806.0 获取从1970到现在的秒数  seconds
 # print(time.ctime(time.time()))    # ctime函数的参数为sec，秒，得到结果为  Wed Nov 21 16:49:17 2018
 
 
 import datetime
-print(datetime.datetime.now())       # 获取当前时间的时间格式化输出    2018-11-21 16:51:53.214165
-print(datetime.datetime.now() + datetime.timedelta(3))   # 获取三天后的时间   2018-11-24 17:01:09.468866
-print(datetime.datetime.now() + datetime.timedelta(hours=3))   # 获取当前时间的后三个小时   2018-11-21 20:01:09.468885
+# print(datetime.datetime.now())       # 获取当前时间的时间格式化输出    2018-11-21 16:51:53.214165
+# print(datetime.datetime.now() + datetime.timedelta(3))   # 获取三天后的时间   2018-11-24 17:01:09.468866
+# print(datetime.datetime.now() + datetime.timedelta(hours=3))   # 获取当前时间的后三个小时   2018-11-21 20:01:09.468885
+# print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))    # 获取当前时间的格式化输出  2018-11-21 17:23:47
+# print(datetime.datetime.now().strftime("%Y-%m-%d %H:00:00"))    # 2018-11-21 19:00:00
+t1 = time.localtime()
+t2 = datetime.datetime.now()
+print(time.strftime("%Y-%m-%d %H:%M:%S", t1))     # 2018-11-21 20:26:05
+print(t2.strftime("%Y-%m-%d %H:%M:%S"))    # 2018-11-21 20:26:05
+
+
+
+import subprocess
+cmd = "free -m"
+# p = subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+# stdout, stderr = p.communicate()  # communicate方法返回的是一个tuple类型，stderr是int类型，stdout是str类型
+# print(p.returncode)
+# print("==========================")
+# print(stderr)
+# print("==========================")
+# print(stdout)
+# p = subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+# stdout, stderr = p.communicate()
+# print(stdout)
+# print(stderr)
+
+
+def runcmd(cmd):
+    p = subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    stdout, stderr = p.communicate()
+    return stdout, stderr
+
+
+stdout, stderr = runcmd(cmd)
+print(stdout)
