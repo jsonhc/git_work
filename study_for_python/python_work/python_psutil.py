@@ -29,8 +29,10 @@ import psutil, sys, subprocess
 
 
 def get_process_memory(cmd):
+    print(cmd)
     result = subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     stdout, stderr = result.communicate()
+    print(stdout)
     pid = int(stdout.decode('utf8'))
     p = psutil.Process(pid)
     return p.memory_percent()
@@ -38,6 +40,6 @@ def get_process_memory(cmd):
 
 process_name = sys.argv[1]
 # print(process_name)
-cmd = "ps -ef|grep %s|awk '{print $2}'|head -1" % process_name
+cmd = ("ps -ef|grep %s|grep -v grep|awk '{print $2}'|head -1" % process_name)
 if __name__ == '__main__':
     print(get_process_memory(cmd))
