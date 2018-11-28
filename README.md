@@ -1,3 +1,2 @@
 # study_for_python
-
-note：study for python
+###note：study for python
